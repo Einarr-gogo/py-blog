@@ -17,6 +17,8 @@
             </div>
             <div class="card-footer text-muted">
               {{ post.owner.first_name }} {{ post.owner.last_name }} — {{ post.created_time|date:"d M Y H:i" }}
+              <br>
+              {{ post.comments.count }} comment{{ post.comments.count|pluralize }}
             </div>
           </div>
         </div>

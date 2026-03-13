@@ -18,12 +18,14 @@
 {% endfor %}
 </ol>
 
-<h3>Add comment</h3>
+{% if user.is_authenticated %}
+  <h3>Add comment</h3>
 
-<form method="post" action="{% url 'blog:commentary-create' pk=post.id %}">
-  {% csrf_token %}
-  {{ form|crispy }}
-  <button type="submit" class="btn btn-primary">Add comment</button>
-</form>
+  <form method="post" action="{% url 'blog:commentary-create' pk=post.id %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Add comment</button>
+  </form>
+{% endif %}
 
 {% endblock %}
